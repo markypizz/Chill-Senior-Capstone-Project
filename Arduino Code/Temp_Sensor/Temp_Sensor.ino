@@ -33,9 +33,11 @@ void loop(void) {
     digitalWrite(LED,HIGH);
   
     //Close valve
+    Serial.print("\nValve On");
     digitalWrite(VALVE,HIGH);
   } else {
     digitalWrite(LED,LOW);
+    digitalWrite(VALVE,LOW);
   }
   delay(1000);
   
