@@ -1,7 +1,7 @@
 int message; 
 
-const int ON = 2;
-const int OFF = 1;
+const byte ON = 2;
+const byte OFF = 1;
 
 const int LED = 4; //Can easily be replaced with the valve
 

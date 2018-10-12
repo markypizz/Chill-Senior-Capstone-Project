@@ -4,6 +4,10 @@
 const int TSensor=4;
 const int LED=7;
 const int VALVE=2;
+
+const int ON = 2;
+const int OFF = 1;
+
 OneWire
 oneWire(TSensor);
 
@@ -24,20 +28,22 @@ void setup(void) {
 
 void loop(void) {
   sensors.requestTemperatures();
-  Serial.print("Celsius temperature\n");
-  Serial.print(sensors.getTempCByIndex(0));
-  Serial.print("\n");
+  //Serial.print("Celsius temperature\n");
+  //Serial.print(sensors.getTempCByIndex(0));
+  //Serial.print("\n");
 
   if (sensors.getTempCByIndex(0) > 30) {
-    Serial.print("\nHot enough!\n\n");
-    digitalWrite(LED,HIGH);
+    //Serial.print("\nHot enough!\n\n");
+    //digitalWrite(LED,HIGH);
   
     //Close valve
-    Serial.print("\nValve On");
-    digitalWrite(VALVE,HIGH);
+    //Serial.print("\nValve On");
+    //digitalWrite(VALVE,HIGH);
+    Serial.write(ON);
   } else {
-    digitalWrite(LED,LOW);
-    digitalWrite(VALVE,LOW);
+    //digitalWrite(LED,LOW);
+    //digitalWrite(VALVE,LOW);
+    Serial.write(OFF);
   }
   delay(1000);
   
