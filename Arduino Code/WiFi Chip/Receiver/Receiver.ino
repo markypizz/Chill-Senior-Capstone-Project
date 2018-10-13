@@ -1,12 +1,16 @@
 #include <ESP8266WiFi.h>
+#include <WiFiUdp.h>
 
 const byte ON = 2;
 const byte OFF = 1;
 
-byte ip[] = {192, 168, 4, 1};
-WiFiClient client;
+unsigned int localPort = 8888;             
 
-int message;
+WiFiUDP udp;
+
+byte udpResponse = 0;
+
+//int message;
 
 void setup() {
   Serial.begin(9600);
@@ -19,33 +23,44 @@ void setup() {
   }
 
   //Now connect to server object
-  if (client.connect(ip, 80) == 1) {
-    Serial.println("Connected");
-  } else {
-    Serial.println("Not Connected");
-  }
+  //if (client.connect(ip, 80) == 1) {
+  //  Serial.println("Connected");
+  //} else {
+  //  Serial.println("Not Connected");
+  //}
   
-  //Serial.write(2);
-  delay(10000);
-  //Serial.write(1);
+  Serial.println(2);
+  delay(3000);
+  Serial.println(1);
+
+  while (! udp.begin(localPort)) {
+    Serial.println("Waiting to start UDP");
+    yield();
+  }
 
 }   
 
 void loop() {
-  client.connect(ip, 80);
-  if (client.connected()) {
-    client.write(1);
-    Serial.println("Connected\n");
-    while(!client.available()){}
-    Serial.println("Available");
-    String message = client.readStringUntil('\r');
-    Serial.println(message);
+  //if (client.connected()) {
+  //  client.write(1);
+  //  Serial.println("Connected\n");
+  //  while(!client.available()){}
+  //  Serial.println("Available");
+  //  byte message = client.read();
+  //  Serial.println(message);
 
     //Send message to arduino
     //if (message == ON || message == OFF) {
     //  Serial.write(message);
     //}
+  
+  //client.flush();
+
+  int size = udp.read(&udpResponse,1);
+
+  if (size > 0) {
+    Serial.println("Made it");
+    Serial.write(udpResponse);
   }
-  client.flush();
-  client.stop();
+  //delay(2000);
 }

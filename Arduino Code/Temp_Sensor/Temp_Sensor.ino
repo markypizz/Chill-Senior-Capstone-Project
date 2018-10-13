@@ -5,8 +5,8 @@ const int TSensor=4;
 const int LED=7;
 const int VALVE=2;
 
-const int ON = 2;
-const int OFF = 1;
+const byte ON = 2;
+const byte OFF = 1;
 
 OneWire
 oneWire(TSensor);
