@@ -53,7 +53,7 @@ void secondwarning() {
     timer.setInterval(60000, Repeat); // repeats the function every 1min
 }
 void Repeat() {                  //Calling functions to make the buzzer beep alternatively.
-  timer.setTimer(3000, buzzerfunc2, 5);
+  timer.setTimer(3000, buzzerfunc2, 5); // buzzerfunc2 will run 5 times every 3sec when function repeat is ran
 
 }
 
@@ -63,26 +63,26 @@ void loop() {
 
 
 void SystemStartAlert(){
-  tone(buzzer1,1000);
-tone(buzzer2,1000);
-delay(1000);
+  tone(buzzer1,1000);         //((buzzer1,1000) to send 1000Hz sound signal
+tone(buzzer2,1000);           //((buzzer2,1000) to send 1000Hz sound signal
+delay(1000);                     // for 1 sec
 noTone(buzzer1);
 noTone(buzzer2);
 }
 
 void buzzerfunc1(){             //function for buzzer1
-  tone(buzzer1,700);            //((buzzer1,500) to send 500Hz sound signal
+  tone(buzzer1,700);            //((buzzer1,500) to send 700Hz sound signal
 delay(500);                     // for 0.5 sec
 noTone(buzzer1);
-  tone(buzzer2,700);            //((buzzer1,500) to send 500Hz sound signal
-delay(700);                     // for 0.5 sec
+  tone(buzzer2,700);            //((buzzer1,500) to send 700Hz sound signal
+delay(700);                     // for 0.7 sec
 noTone(buzzer2);
 }
 void buzzerfunc2(){             //function for buzzer1
-  tone(buzzer1,1000);            //((buzzer1,500) to send 500Hz sound signal
-delay(300);                     // for 0.5 sec
+  tone(buzzer1,1000);            //((buzzer1,500) to send 1000Hz sound signal
+delay(300);                     // for 0.3 sec
 noTone(buzzer1);
-  tone(buzzer2,1000);            //((buzzer1,500) to send 500Hz sound signal
+  tone(buzzer2,1000);            //((buzzer1,500) to send 1000Hz sound signal
 delay(500);                     // for 0.5 sec
 noTone(buzzer2);
 }
