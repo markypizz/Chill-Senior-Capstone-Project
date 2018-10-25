@@ -3,36 +3,56 @@
 
 const byte ON = 2;
 const byte OFF = 1;
-byte message;
+char message[] = "Hello there!";
 
 byte currentSend = 2;
-unsigned int localPort = 8888;
-IPAddress broadcastIP;
+unsigned int localPort = 4210;
+IPAddress broadcastIP(255,255,255,255);
 
 WiFiUDP udp;
 
+typedef struct {
+  int targetTemp;
+  int currentTemp;
+  bool hotValveClosed;
+  bool coldValveClosed;
+  bool grayWaterClosed;
+} stats;
+
+stats statuses;
+
 void setup()
 {
-  WiFi.mode(WIFI_AP_STA);;
   Serial.println("Beginning");
   Serial.begin(9600);
   WiFi.softAP("ChillShower", "jamespark");
-  broadcastIP = ~WiFi.subnetMask() | WiFi.gatewayIP();
+  //broadcastIP = ~WiFi.subnetMask() | WiFi.gatewayIP();
   Serial.println("Done");
 
-  while (! udp.begin(localPort)) {
-    Serial.println("Waiting to start UDP");
-    yield();
-  }
+  udp.begin(localPort);
+
+  statuses.targetTemp = 30;
+  statuses.currentTemp = 0;
+  statuses.hotValveClosed = true;
+  statuses.coldValveClosed = false;
+  statuses.grayWaterClosed = false;
 }
 
 void loop()
 {
   //Send message to clients
-  message = currentSend;
+  //message = currentSend;
+
+  if (Serial.available()) {
+    int i = 0;
+
+    while (i < sizeof(statuses)) {
+      *(((byte *)&statuses) + i) = Serial.read();
+    }
+  }
 
   udp.beginPacket(broadcastIP,localPort);
-  udp.write(message);
+  udp.write(statuses);
   udp.endPacket();
   Serial.println("Wrote...");
 
@@ -53,11 +73,11 @@ void loop()
    // }
   //}
 
-    if (currentSend == ON) {
-      currentSend = OFF;
-    } else {
-      currentSend = ON;
-    }
+    //if (currentSend == ON) {
+    //  currentSend = OFF;
+    //} else {
+    //  currentSend = ON;
+    //}
 
     delay(2000);
       

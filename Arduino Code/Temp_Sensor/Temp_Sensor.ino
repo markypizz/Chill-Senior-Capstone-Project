@@ -14,7 +14,15 @@ oneWire(TSensor);
 DallasTemperature
 sensors(&oneWire);
 
+typedef struct {
+  int targetTemp;
+  int currentTemp;
+  bool hotValveClosed;
+  bool coldValveClosed;
+  bool grayWaterClosed;
+} stats;
 
+stats statuses;
 
 void setup(void) {
   // put your setup code here, to run once:
@@ -24,27 +32,22 @@ void setup(void) {
   Serial.begin(9600);
   sensors.begin();
 
+  statuses.targetTemp = 30;
+  statuses.currentTemp = 0;
+  statuses.hotValveClosed = true;
+  statuses.coldValveClosed = false;
+  statuses.grayWaterClosed = false;
+
 }
 
 void loop(void) {
   sensors.requestTemperatures();
-  //Serial.print("Celsius temperature\n");
-  //Serial.print(sensors.getTempCByIndex(0));
-  //Serial.print("\n");
 
   if (sensors.getTempCByIndex(0) > 30) {
-    //Serial.print("\nHot enough!\n\n");
-    //digitalWrite(LED,HIGH);
-  
-    //Close valve
-    //Serial.print("\nValve On");
-    //digitalWrite(VALVE,HIGH);
-    Serial.write(ON);
+    statuses.hotValveClosed = true;
   } else {
-    //digitalWrite(LED,LOW);
-    //digitalWrite(VALVE,LOW);
-    Serial.write(OFF);
+    statuses.hotValveClosed = false;
   }
-  delay(1000);
-  
+  Serial.write((byte*)&statuses,sizeof(statuses));
+  delay(2000);
 }

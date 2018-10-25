@@ -4,11 +4,12 @@
 const byte ON = 2;
 const byte OFF = 1;
 
-unsigned int localPort = 8888;             
+unsigned int localPort = 4210;             
 
 WiFiUDP udp;
 
 byte udpResponse = 0;
+char incomingPacket[255];
 
 //int message;
 
@@ -33,9 +34,8 @@ void setup() {
   delay(3000);
   Serial.println(1);
 
-  while (! udp.begin(localPort)) {
-    Serial.println("Waiting to start UDP");
-    yield();
+  while (!udp.begin(localPort)) {
+    Serial.println("Could not start UDP");
   }
 
 }   
@@ -54,13 +54,14 @@ void loop() {
     //  Serial.write(message);
     //}
   
-  //client.flush();
-
-  int size = udp.read(&udpResponse,1);
-
-  if (size > 0) {
-    Serial.println("Made it");
-    Serial.write(udpResponse);
+  int packetSize = udp.parsePacket();
+  if (packetSize) {
+    Serial.printf("Received %d bytes from %s, port %d\n", packetSize, udp.remoteIP().toString().c_str(), udp.remotePort());
+    int len = udp.read(incomingPacket, 255);
+    if (len > 0)
+    {
+      incomingPacket[len] = 0;
+    }
+    Serial.printf("UDP packet contents: %s\n", incomingPacket);
   }
-  //delay(2000);
 }
