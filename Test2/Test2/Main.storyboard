@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Shower" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnh-av-7jF">
+                                <rect key="frame" x="144" y="40" width="87" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desired Temperature:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goM-Ch-PjW">
+                                <rect key="frame" x="105" y="245" width="166" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP8-bl-af0">
+                                <rect key="frame" x="113" y="274" width="150" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="7Fr-gI-pa5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="15" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="KXL-OZ-uui">
+                                <rect key="frame" x="76" y="328.5" width="222" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="218" id="rrx-g3-Gco"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="doneChangingTarget:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="176-KU-fHv"/>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zba-dC-5PW"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shower Temperature Monitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2o-9W-Gu2">
+                                <rect key="frame" x="43.5" y="87" width="287" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Temperature:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEY-Kf-Qph">
+                                <rect key="frame" x="105" y="572" width="165" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33 C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwu-f1-5Az">
+                                <rect key="frame" x="147" y="601" width="81" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93037378790000003" green="1" blue="0.9479411244" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="Iwu-f1-5Az" firstAttribute="top" secondItem="bEY-Kf-Qph" secondAttribute="bottom" constant="8" id="6z4-K2-Feq"/>
+                            <constraint firstItem="Y2o-9W-Gu2" firstAttribute="top" secondItem="Tnh-av-7jF" secondAttribute="bottom" constant="8" id="AJi-8f-Qs8"/>
+                            <constraint firstItem="nP8-bl-af0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CGV-au-udN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Iwu-f1-5Az" secondAttribute="bottom" constant="20" id="Ooz-xr-31W"/>
+                            <constraint firstItem="KXL-OZ-uui" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ThZ-XR-dji"/>
+                            <constraint firstItem="nP8-bl-af0" firstAttribute="top" secondItem="goM-Ch-PjW" secondAttribute="bottom" constant="8" id="U8b-nr-m9T"/>
+                            <constraint firstItem="KXL-OZ-uui" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Upt-Nr-a66"/>
+                            <constraint firstItem="Iwu-f1-5Az" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UuY-Wp-IJN"/>
+                            <constraint firstItem="Y2o-9W-Gu2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VYy-Il-feZ"/>
+                            <constraint firstItem="goM-Ch-PjW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hRs-MA-j1t"/>
+                            <constraint firstItem="Tnh-av-7jF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="iAD-jS-tl1"/>
+                            <constraint firstItem="KXL-OZ-uui" firstAttribute="top" secondItem="nP8-bl-af0" secondAttribute="bottom" constant="8.5" id="wFt-la-7sT"/>
+                            <constraint firstItem="Tnh-av-7jF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wrH-u1-Nz9"/>
+                            <constraint firstItem="bEY-Kf-Qph" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xQe-a1-GSL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="currentTempLabel" destination="Iwu-f1-5Az" id="Veu-Nx-fjP"/>
+                        <outlet property="sliderControl" destination="KXL-OZ-uui" id="W8J-Xe-ZBk"/>
+                        <outlet property="targetTempLabel" destination="nP8-bl-af0" id="XVT-3x-kJj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>
