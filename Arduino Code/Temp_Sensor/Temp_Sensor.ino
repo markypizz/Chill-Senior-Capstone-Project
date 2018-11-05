@@ -1,5 +1,6 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include <EEPROM.h>
 
 const int TSensor=4;
 const int LED=7;
@@ -32,7 +33,15 @@ void setup(void) {
   Serial.begin(9600);
   sensors.begin();
 
-  statuses.targetTemp = 30;
+  int temp = EEPROMReadInt(0);
+
+  if ((temp < 10) || (temp > 60)) { //default value
+    temp = 30; //default temp
+  }
+  //Write it back
+  EEPROMWriteInt(0, temp);  
+  
+  statuses.targetTemp = temp;
   statuses.currentTemp = 0;
   statuses.hotValveClosed = true;
   statuses.coldValveClosed = false;
@@ -48,6 +57,27 @@ void loop(void) {
   } else {
     statuses.hotValveClosed = false;
   }
-  Serial.write((byte*)&statuses,sizeof(statuses));
+
+  //Update current temperature
+  statuses.currentTemp = (int)sensors.getTempCByIndex(0);
+  
+  Serial.write((char *)&statuses,sizeof(statuses));
   delay(2000);
+}
+
+void EEPROMWriteInt(int address, int value)
+{
+  byte two = (value & 0xFF);
+  byte one = ((value >> 8) & 0xFF);
+  
+  EEPROM.update(address, two);
+  EEPROM.update(address + 1, one);
+}
+ 
+int EEPROMReadInt(int address)
+{
+  long two = EEPROM.read(address);
+  long one = EEPROM.read(address + 1);
+ 
+  return ((two << 0) & 0xFFFFFF) + ((one << 8) & 0xFFFFFFFF);
 }

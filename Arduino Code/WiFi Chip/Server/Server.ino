@@ -25,6 +25,7 @@ void setup()
 {
   Serial.println("Beginning");
   Serial.begin(9600);
+  WiFi.disconnect();
   WiFi.softAP("ChillShower", "jamespark");
   //broadcastIP = ~WiFi.subnetMask() | WiFi.gatewayIP();
   Serial.println("Done");
@@ -36,25 +37,31 @@ void setup()
   statuses.hotValveClosed = true;
   statuses.coldValveClosed = false;
   statuses.grayWaterClosed = false;
+
+  //Wait until data arrives
+  while (Serial.available() < sizeof(statuses)) {delay(100);}
+
+  Serial.readBytes((char*)&statuses, sizeof(statuses));
+  
+  delay(500);
 }
 
 void loop()
 {
+  
   //Send message to clients
   //message = currentSend;
 
   if (Serial.available()) {
-    int i = 0;
-
-    while (i < sizeof(statuses)) {
-      *(((byte *)&statuses) + i) = Serial.read();
-    }
+    Serial.println(Serial.available());
+    Serial.readBytes((char*)&statuses, sizeof(statuses));
+    Serial.write(1);
   }
 
   udp.beginPacket(broadcastIP,localPort);
-  udp.write(statuses);
+  udp.write((char *)&statuses,sizeof(statuses));
   udp.endPacket();
-  Serial.println("Wrote...");
+  //Serial.println("Wrote...");
 
   //if (client) {
   //  if (client.connected()) {
@@ -79,6 +86,6 @@ void loop()
     //  currentSend = ON;
     //}
 
-    delay(2000);
+    delay(10);
       
 }
