@@ -6,6 +6,7 @@
 const int TSensor=4;
 const int ONLED=7;
 const int READYLED=2;
+const int BUTTON=13;
 
 const byte ON = 2;
 const byte OFF = 1;
@@ -15,6 +16,7 @@ const int MAX_HOT = 35;
 bool waitingCycles = false;
 int counterForHotWater = 0;
 bool timerStarted = false;
+bool extraDelay = false;
 
 OneWire oneWire(TSensor);
 
@@ -38,6 +40,7 @@ void setup(void) {
   // put your setup code here, to run once:
   pinMode(ONLED,OUTPUT);
   pinMode(READYLED,OUTPUT);
+  pinMode(BUTTON, INPUT);
  
   Serial.begin(9600);
   sensors.begin();
@@ -143,8 +146,18 @@ void loop(void) {
           timerStarted = true;
         }
 
-        //Poll timer
+        //Main shower on code
         timer.run();
+
+        int buttonState = digitalRead(BUTTON);
+
+        //Briefly press and hold button to activate
+        if (buttonState == HIGH) {
+          //flip state of master valve
+          statuses.mainLineClosed = !(statuses.mainLineClosed);
+          extraDelay = true;
+        }
+        
       }
     } else {
       //Waiting to enable cold valve
@@ -163,6 +176,11 @@ void loop(void) {
   
   Serial.write((char *)&statuses,sizeof(statuses));
   delay(2000);
+
+  if (extraDelay) {
+    delay(3000);
+    extraDelay = false;
+  }
 }
 
 void EEPROMWriteInt(int address, int value)
