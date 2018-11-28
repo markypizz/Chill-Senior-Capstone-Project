@@ -5,7 +5,7 @@ void setup() {
     Serial.begin(9600);
       myservo.attach(9); //pin number
 
-  myservo.writeMicroseconds(1500); // from 1000~2000, 1500 is the middle.
+  myservo.writeMicroseconds(1500); // from 1000~2000, 1500 is the middle. some motors run from 700~2300
 }
 
 void loop() {
