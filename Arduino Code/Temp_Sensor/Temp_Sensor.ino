@@ -157,14 +157,7 @@ void loop(void) {
     
     if (counterForHotWater == 3) {
       if (!(statuses.showerReady)) {
-        if (Serial.available()) {
-          //Serial.println(Serial.available());
-          Serial.readBytes((char*)&returnStatuses, sizeof(returnStatuses));
-
-          statuses.targetTemp = returnStatuses.targetTemp;
-          statuses.timer1 = returnStatuses.timer1;
-          statuses.timer2 = returnStatuses.timer2;
-        }
+        
         
         //Shower not ready
         if (currentTemp > statuses.targetTemp) {
@@ -215,6 +208,15 @@ void loop(void) {
         }
       }
     } else {
+      
+      if (Serial.available()) {
+          //Serial.println(Serial.available());
+          Serial.readBytes((char*)&returnStatuses, sizeof(returnStatuses));
+
+          statuses.targetTemp = returnStatuses.targetTemp;
+          statuses.timer1 = returnStatuses.timer1;
+          statuses.timer2 = returnStatuses.timer2;
+        }
       //Waiting to enable cold valve
       if (currentTemp > MAX_HOT) {
         //Open cold valve
