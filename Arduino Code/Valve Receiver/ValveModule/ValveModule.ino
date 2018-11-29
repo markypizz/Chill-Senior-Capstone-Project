@@ -1,24 +1,24 @@
-int message; 
+bool message; 
 
-const byte ON = 2;
-const byte OFF = 1;
-
-const int LED = 4; //Can easily be replaced with the valve
+const int VALVE = 2;
 
 void setup() {
   //Serial Begin at 9600 Baud 
-  pinMode(LED,OUTPUT);
+  pinMode(VALVE,OUTPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  message = Serial.read();
-
-  if (message == ON) {
-    digitalWrite(LED,HIGH);
-  } else if (message == OFF) {
-    digitalWrite(LED,LOW);
-  }
+  if (Serial.available() > 0) {
+    message = Serial.read();
   
-  delay(1000);
+    //message -1 if no data available
+    
+    if (message == false) {
+      digitalWrite(VALVE,LOW);
+    } else if (message == true) {
+      //Close valve
+      digitalWrite(VALVE,HIGH);
+    }
+  }
 }
