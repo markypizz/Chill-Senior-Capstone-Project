@@ -6,20 +6,29 @@ const byte OFF = 1;
 char message[] = "Hello there!";
 
 byte currentSend = 2;
-unsigned int localPort = 4210;
+unsigned int localPort = 4211;
 IPAddress broadcastIP(255,255,255,255);
 
 WiFiUDP udp;
 
 typedef struct {
-  int targetTemp;
-  int currentTemp;
-  bool hotValveClosed;
-  bool coldValveClosed;
-  bool grayWaterClosed;
+  int32_t timer1;
+  int32_t timer2;
+  int16_t targetTemp;
+  int16_t currentTemp;
+  uint8_t servoAngle;
+  bool mainLineClosed;
+  bool showerReady;
 } stats;
 
+typedef struct {
+  int32_t timer1;
+  int32_t timer2;
+  int16_t targetTemp;
+} response;
+
 stats statuses;
+response reStats;
 
 void setup()
 {
@@ -34,9 +43,11 @@ void setup()
 
   statuses.targetTemp = 30;
   statuses.currentTemp = 0;
-  statuses.hotValveClosed = true;
-  statuses.coldValveClosed = false;
-  statuses.grayWaterClosed = false;
+  statuses.timer1 = 300000;
+  statuses.timer2 = 180000;
+  statuses.mainLineClosed = false;
+  statuses.servoAngle = 180;
+  statuses.showerReady = false;
 
   //Wait until data arrives
   while (Serial.available() < sizeof(statuses)) {delay(100);}
@@ -53,14 +64,13 @@ void loop()
   //message = currentSend;
 
   if (Serial.available()) {
-    Serial.println(Serial.available());
+    //Serial.println(Serial.available());
     Serial.readBytes((char*)&statuses, sizeof(statuses));
-    Serial.write(1);
+    //Serial.write(1);
+    udp.beginPacket(broadcastIP,4210);
+    udp.write((char *)&statuses,sizeof(statuses));
+    udp.endPacket();
   }
-
-  udp.beginPacket(broadcastIP,localPort);
-  udp.write((char *)&statuses,sizeof(statuses));
-  udp.endPacket();
   //Serial.println("Wrote...");
 
   //if (client) {
@@ -86,6 +96,20 @@ void loop()
     //  currentSend = ON;
     //}
 
-    delay(10);
+    int packetSize = udp.parsePacket();
+    if (packetSize != 0) {
+      Serial.write("Made it");
+    }
+    if (packetSize != sizeof(statuses)) {
+      int len = udp.read((char *)&reStats,sizeof(reStats));
+      if (len > 0) {
+        //Serial.println(statuses.currentTemp);
+        //Serial.println("Current temp: " + statuses.currentTemp);
+        //Serial.println("Cold valve: " + statuses.coldValveClosed);
+        Serial.write((char *)&reStats,sizeof(reStats));
+    }
+  }
+
+    delay(100);
       
 }
