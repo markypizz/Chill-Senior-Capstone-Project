@@ -11,6 +11,18 @@ WiFiUDP udp;
 byte udpResponse = 0;
 char incomingPacket[255];
 
+typedef struct {
+  int32_t timer1;
+  int32_t timer2;
+  int16_t targetTemp;
+  int16_t currentTemp;
+  int16_t servoAngle;
+  bool mainLineClosed;
+  bool showerReady;
+} stats;
+
+stats statuses;
+
 //int message;
 
 void setup() {
@@ -30,13 +42,20 @@ void setup() {
   //  Serial.println("Not Connected");
   //}
   
-  Serial.println(2);
   delay(3000);
-  Serial.println(1);
 
   while (!udp.begin(localPort)) {
     Serial.println("Could not start UDP");
   }
+
+  //irrelevant data
+  statuses.targetTemp = 0;
+  statuses.currentTemp = 0; 
+  statuses.timer1 = 0;
+  statuses.timer2 = 0;
+  statuses.servoAngle = 180;
+  statuses.mainLineClosed = false;
+  statuses.showerReady = false;
 
 }   
 
@@ -55,13 +74,13 @@ void loop() {
     //}
   
   int packetSize = udp.parsePacket();
-  if (packetSize) {
-    Serial.printf("Received %d bytes from %s, port %d\n", packetSize, udp.remoteIP().toString().c_str(), udp.remotePort());
-    int len = udp.read(incomingPacket, 255);
-    if (len > 0)
-    {
-      incomingPacket[len] = 0;
+  if (packetSize > 0) {
+    int len = udp.read((char *)&statuses,sizeof(statuses));
+    if (len > 0) {
+      //Serial.println(statuses.currentTemp);
+      //Serial.println("Current temp: " + statuses.currentTemp);
+      //Serial.println("Cold valve: " + statuses.coldValveClosed);
+      Serial.write(statuses.mainLineClosed);
     }
-    Serial.printf("UDP packet contents: %s\n", incomingPacket);
   }
 }

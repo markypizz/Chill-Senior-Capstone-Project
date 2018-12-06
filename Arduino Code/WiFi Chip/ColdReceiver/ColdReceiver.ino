@@ -1,9 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const byte ON = 2;
-const byte OFF = 1;
-
 unsigned int localPort = 4210;             
 
 WiFiUDP udp;
@@ -16,7 +13,7 @@ typedef struct {
   int32_t timer2;
   int16_t targetTemp;
   int16_t currentTemp;
-  int16_t servoAngle;
+  uint8_t servoAngle;
   bool mainLineClosed;
   bool showerReady;
 } stats;
@@ -33,7 +30,10 @@ void setup() {
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
+    //Serial.println("Not connected");
   }
+
+  //Serial.println("Connected");
 
   //Now connect to server object
   //if (client.connect(ip, 80) == 1) {
@@ -48,12 +48,14 @@ void setup() {
     Serial.println("Could not start UDP");
   }
 
+  //Serial.println("Listening");
+
   //irrelevant data
   statuses.targetTemp = 0;
   statuses.currentTemp = 0; 
   statuses.timer1 = 0;
   statuses.timer2 = 0;
-  statuses.servoAngle = 180;
+  statuses.servoAngle = 90;
   statuses.mainLineClosed = false;
   statuses.showerReady = false;
 
@@ -75,12 +77,17 @@ void loop() {
   
   int packetSize = udp.parsePacket();
   if (packetSize > 0) {
+    //Serial.println("Reading packet");
     int len = udp.read((char *)&statuses,sizeof(statuses));
     if (len > 0) {
+      //Serial.println("Length > 0");
       //Serial.println(statuses.currentTemp);
       //Serial.println("Current temp: " + statuses.currentTemp);
       //Serial.println("Cold valve: " + statuses.coldValveClosed);
-      Serial.write(statuses.mainLineClosed);
+
+      //Write desired servo angle
+      //Serial.println(statuses.servoAngle);
+      Serial.write(statuses.servoAngle);
     }
   }
 }

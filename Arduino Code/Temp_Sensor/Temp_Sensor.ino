@@ -12,7 +12,7 @@ const int BUTTON=13;
 const byte ON = 2;
 const byte OFF = 1;
 
-const int MAX_HOT = 35;
+const int MAX_HOT = 30;
 
 bool waitingCycles = false;
 int counterForHotWater = 0;
@@ -90,7 +90,7 @@ void setup(void) {
   statuses.timer2 = timer2;
 
   //Bizarre bug ???
-  statuses.servoAngle = 180; //VALVE CLOSED
+  statuses.servoAngle = 90; //VALVE CLOSED
   statuses.mainLineClosed = false;
   statuses.showerReady = false;
 
@@ -169,9 +169,12 @@ void loop(void) {
           digitalWrite(READYLED,HIGH);
           
         } else {
-          statuses.servoAngle += 20;
-          if (statuses.servoAngle > 180) {
-            statuses.servoAngle = 180;
+          //
+          // Why is this here?
+          //
+          statuses.servoAngle += 10;
+          if (statuses.servoAngle > 90) {
+            statuses.servoAngle = 90;
           }
         }
       } else {
@@ -183,14 +186,14 @@ void loop(void) {
 
         if (!statuses.mainLineClosed) {
           if (currentTemp > statuses.targetTemp) {
-            if (statuses.servoAngle < 20) {
-              statuses.servoAngle = 20;
+            if (statuses.servoAngle < 10) {
+              statuses.servoAngle = 10;
             }
-            statuses.servoAngle -= 20;
+            statuses.servoAngle -= 10;
           } else if (currentTemp < statuses.targetTemp){
-            statuses.servoAngle += 20;
-            if (statuses.servoAngle > 180) {
-              statuses.servoAngle = 180;
+            statuses.servoAngle += 10;
+            if (statuses.servoAngle > 90) {
+              statuses.servoAngle = 90;
             }
           }
         }
@@ -220,7 +223,7 @@ void loop(void) {
       //Waiting to enable cold valve
       if (currentTemp > MAX_HOT) {
         //Open cold valve
-        statuses.servoAngle = 90;
+        statuses.servoAngle = 40;
         waitingCycles = true;
         counterForHotWater = 1;
       } else {
