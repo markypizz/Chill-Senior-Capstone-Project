@@ -31,13 +31,13 @@
 		10A5C46BE9D293C63E0267A1 /* Pods-Test2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test2/Pods-Test2.debug.xcconfig"; sourceTree = "<group>"; };
 		20D8A39B6839105EFCF3501B /* Pods_Test2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A5B15E21900D3700FD2898 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		23C2D04F218E8B5A00E876BD /* Test2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23C2D04F218E8B5A00E876BD /* ChillShowerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChillShowerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C2D052218E8B5A00E876BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23C2D054218E8B5A00E876BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		23C2D059218E8B5D00E876BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23C2D05C218E8B5D00E876BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23C2D05E218E8B5D00E876BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23C2D063218E8B5D00E876BD /* Test2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23C2D063218E8B5D00E876BD /* ChillShowerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChillShowerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C2D067218E8B5D00E876BD /* Test2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2Tests.swift; sourceTree = "<group>"; };
 		23C2D069218E8B5D00E876BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87E16F1C66037E32FEB79117 /* Pods-Test2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test2Tests/Pods-Test2Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 		23C2D050218E8B5A00E876BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23C2D04F218E8B5A00E876BD /* Test2.app */,
-				23C2D063218E8B5D00E876BD /* Test2Tests.xctest */,
+				23C2D04F218E8B5A00E876BD /* ChillShowerApp.app */,
+				23C2D063218E8B5D00E876BD /* ChillShowerAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,9 +131,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		23C2D04E218E8B5A00E876BD /* Test2 */ = {
+		23C2D04E218E8B5A00E876BD /* ChillShowerApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23C2D06C218E8B5D00E876BD /* Build configuration list for PBXNativeTarget "Test2" */;
+			buildConfigurationList = 23C2D06C218E8B5D00E876BD /* Build configuration list for PBXNativeTarget "ChillShowerApp" */;
 			buildPhases = (
 				871EBCAD3C9D8A353AFDB1DB /* [CP] Check Pods Manifest.lock */,
 				23C2D04B218E8B5A00E876BD /* Sources */,
@@ -145,14 +145,14 @@
 			);
 			dependencies = (
 			);
-			name = Test2;
+			name = ChillShowerApp;
 			productName = Test2;
-			productReference = 23C2D04F218E8B5A00E876BD /* Test2.app */;
+			productReference = 23C2D04F218E8B5A00E876BD /* ChillShowerApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		23C2D062218E8B5D00E876BD /* Test2Tests */ = {
+		23C2D062218E8B5D00E876BD /* ChillShowerAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23C2D06F218E8B5D00E876BD /* Build configuration list for PBXNativeTarget "Test2Tests" */;
+			buildConfigurationList = 23C2D06F218E8B5D00E876BD /* Build configuration list for PBXNativeTarget "ChillShowerAppTests" */;
 			buildPhases = (
 				17A384066726CBEEF2F5D785 /* [CP] Check Pods Manifest.lock */,
 				23C2D05F218E8B5D00E876BD /* Sources */,
@@ -164,9 +164,9 @@
 			dependencies = (
 				23C2D065218E8B5D00E876BD /* PBXTargetDependency */,
 			);
-			name = Test2Tests;
+			name = ChillShowerAppTests;
 			productName = Test2Tests;
-			productReference = 23C2D063218E8B5D00E876BD /* Test2Tests.xctest */;
+			productReference = 23C2D063218E8B5D00E876BD /* ChillShowerAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -188,7 +188,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 23C2D04A218E8B5A00E876BD /* Build configuration list for PBXProject "Test2" */;
+			buildConfigurationList = 23C2D04A218E8B5A00E876BD /* Build configuration list for PBXProject "ChillShowerApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -201,8 +201,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23C2D04E218E8B5A00E876BD /* Test2 */,
-				23C2D062218E8B5D00E876BD /* Test2Tests */,
+				23C2D04E218E8B5A00E876BD /* ChillShowerApp */,
+				23C2D062218E8B5D00E876BD /* ChillShowerAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -307,7 +307,7 @@
 /* Begin PBXTargetDependency section */
 		23C2D065218E8B5D00E876BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 23C2D04E218E8B5A00E876BD /* Test2 */;
+			target = 23C2D04E218E8B5A00E876BD /* ChillShowerApp */;
 			targetProxy = 23C2D064218E8B5D00E876BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -443,6 +443,7 @@
 			baseConfigurationReference = 10A5C46BE9D293C63E0267A1 /* Pods-Test2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CN827DJS65;
 				INFOPLIST_FILE = Test2/Info.plist;
@@ -450,10 +451,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mkp5284.Test2;
+				PRODUCT_BUNDLE_IDENTIFIER = mkp5284.Chill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -462,6 +464,7 @@
 			baseConfigurationReference = E540CF2B8FA8E255AD51476D /* Pods-Test2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CN827DJS65;
 				INFOPLIST_FILE = Test2/Info.plist;
@@ -469,10 +472,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mkp5284.Test2;
+				PRODUCT_BUNDLE_IDENTIFIER = mkp5284.Chill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -494,7 +498,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test2.app/Test2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChillShowerApp.app/ChillShowerApp";
 			};
 			name = Debug;
 		};
@@ -516,14 +520,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test2.app/Test2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChillShowerApp.app/ChillShowerApp";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		23C2D04A218E8B5A00E876BD /* Build configuration list for PBXProject "Test2" */ = {
+		23C2D04A218E8B5A00E876BD /* Build configuration list for PBXProject "ChillShowerApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23C2D06A218E8B5D00E876BD /* Debug */,
@@ -532,7 +536,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23C2D06C218E8B5D00E876BD /* Build configuration list for PBXNativeTarget "Test2" */ = {
+		23C2D06C218E8B5D00E876BD /* Build configuration list for PBXNativeTarget "ChillShowerApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23C2D06D218E8B5D00E876BD /* Debug */,
@@ -541,7 +545,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23C2D06F218E8B5D00E876BD /* Build configuration list for PBXNativeTarget "Test2Tests" */ = {
+		23C2D06F218E8B5D00E876BD /* Build configuration list for PBXNativeTarget "ChillShowerAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23C2D070218E8B5D00E876BD /* Debug */,

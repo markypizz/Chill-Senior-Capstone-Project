@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,25 +13,25 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Shower" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Test2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnh-av-7jF">
-                                <rect key="frame" x="144" y="40" width="87" height="39"/>
+                                <rect key="frame" x="144" y="40" width="87" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desired Temperature:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goM-Ch-PjW">
-                                <rect key="frame" x="105" y="245" width="166" height="21"/>
+                                <rect key="frame" x="105" y="246" width="165.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP8-bl-af0">
-                                <rect key="frame" x="113" y="274" width="150" height="46"/>
+                                <rect key="frame" x="112.5" y="274.5" width="150" height="45.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="7Fr-gI-pa5"/>
                                 </constraints>
@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="15" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="KXL-OZ-uui">
-                                <rect key="frame" x="76" y="328.5" width="222" height="31"/>
+                                <rect key="frame" x="76.5" y="328.5" width="222" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="218" id="rrx-g3-Gco"/>
                                 </constraints>
@@ -50,45 +50,121 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shower Temperature Monitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2o-9W-Gu2">
-                                <rect key="frame" x="43.5" y="87" width="287" height="27.5"/>
+                                <rect key="frame" x="44" y="86.5" width="287" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Temperature:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEY-Kf-Qph">
-                                <rect key="frame" x="105" y="572" width="165" height="21"/>
+                                <rect key="frame" x="105.5" y="573" width="164.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33 C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwu-f1-5Az">
-                                <rect key="frame" x="147" y="601" width="81" height="46"/>
+                                <rect key="frame" x="147.5" y="601.5" width="80.5" height="45.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nJt-S7-HME">
+                                <rect key="frame" x="117.5" y="139" width="140.5" height="77.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Valve: Open" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtZ-Aq-rZf">
+                                        <rect key="frame" x="3.5" y="0.0" width="133" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cold Valve: Open" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIf-49-GTK">
+                                        <rect key="frame" x="4.5" y="28.5" width="131.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shower Ready: No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQw-uT-rxQ">
+                                        <rect key="frame" x="0.0" y="57" width="140.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert 1: 5 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz1-vG-Y05">
+                                <rect key="frame" x="42" y="377" width="133" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert 2: 3 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGA-kS-lKr">
+                                <rect key="frame" x="42" y="417.5" width="135.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="vz3-d7-RPk">
+                                <rect key="frame" x="243" y="373" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepper1Changed:" destination="BYZ-38-t0r" eventType="valueChanged" id="90a-k8-NRz"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="eVQ-Cr-IVk">
+                                <rect key="frame" x="243" y="413" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepper2Changed:" destination="BYZ-38-t0r" eventType="valueChanged" id="7yP-O1-Aqz"/>
+                                </connections>
+                            </stepper>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVm-XR-vFY">
+                                <rect key="frame" x="127.5" y="535" width="120" height="30"/>
+                                <state key="normal" title="Confirm Changes"/>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nGT-9o-sy6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93037378790000003" green="1" blue="0.9479411244" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="vz3-d7-RPk" firstAttribute="top" secondItem="KXL-OZ-uui" secondAttribute="bottom" constant="14.5" id="12q-OU-a7p"/>
                             <constraint firstItem="Iwu-f1-5Az" firstAttribute="top" secondItem="bEY-Kf-Qph" secondAttribute="bottom" constant="8" id="6z4-K2-Feq"/>
                             <constraint firstItem="Y2o-9W-Gu2" firstAttribute="top" secondItem="Tnh-av-7jF" secondAttribute="bottom" constant="8" id="AJi-8f-Qs8"/>
+                            <constraint firstItem="nJt-S7-HME" firstAttribute="top" secondItem="Y2o-9W-Gu2" secondAttribute="bottom" constant="25" id="AXU-ku-nFR"/>
                             <constraint firstItem="nP8-bl-af0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CGV-au-udN"/>
+                            <constraint firstItem="eVQ-Cr-IVk" firstAttribute="top" secondItem="vz3-d7-RPk" secondAttribute="bottom" constant="11" id="Dmh-2g-yEt"/>
+                            <constraint firstItem="bEY-Kf-Qph" firstAttribute="top" secondItem="RVm-XR-vFY" secondAttribute="bottom" constant="8" id="EeZ-yX-Btf"/>
+                            <constraint firstItem="goM-Ch-PjW" firstAttribute="top" secondItem="nJt-S7-HME" secondAttribute="bottom" constant="29.5" id="JFP-Xz-YH3"/>
+                            <constraint firstItem="nJt-S7-HME" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JxW-gy-z8W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Iwu-f1-5Az" secondAttribute="bottom" constant="20" id="Ooz-xr-31W"/>
                             <constraint firstItem="KXL-OZ-uui" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ThZ-XR-dji"/>
                             <constraint firstItem="nP8-bl-af0" firstAttribute="top" secondItem="goM-Ch-PjW" secondAttribute="bottom" constant="8" id="U8b-nr-m9T"/>
-                            <constraint firstItem="KXL-OZ-uui" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Upt-Nr-a66"/>
                             <constraint firstItem="Iwu-f1-5Az" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UuY-Wp-IJN"/>
                             <constraint firstItem="Y2o-9W-Gu2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VYy-Il-feZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vz3-d7-RPk" secondAttribute="trailing" constant="38" id="Vz9-VG-t3M"/>
+                            <constraint firstItem="WGA-kS-lKr" firstAttribute="top" secondItem="pz1-vG-Y05" secondAttribute="bottom" constant="20" id="WbG-pX-Kwf"/>
+                            <constraint firstItem="RVm-XR-vFY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Wsz-rw-e8R"/>
+                            <constraint firstItem="nP8-bl-af0" firstAttribute="top" secondItem="goM-Ch-PjW" secondAttribute="bottom" constant="8" id="hEy-jN-Aaq"/>
                             <constraint firstItem="goM-Ch-PjW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hRs-MA-j1t"/>
                             <constraint firstItem="Tnh-av-7jF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="iAD-jS-tl1"/>
+                            <constraint firstItem="pz1-vG-Y05" firstAttribute="top" secondItem="KXL-OZ-uui" secondAttribute="bottom" constant="18.5" id="jH2-CS-YUe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eVQ-Cr-IVk" secondAttribute="trailing" constant="38" id="jfb-gf-W32"/>
+                            <constraint firstItem="WGA-kS-lKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="jop-gj-tE0"/>
+                            <constraint firstItem="KXL-OZ-uui" firstAttribute="top" secondItem="nP8-bl-af0" secondAttribute="bottom" constant="8.5" id="u1d-Zy-sNl"/>
                             <constraint firstItem="KXL-OZ-uui" firstAttribute="top" secondItem="nP8-bl-af0" secondAttribute="bottom" constant="8.5" id="wFt-la-7sT"/>
                             <constraint firstItem="Tnh-av-7jF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wrH-u1-Nz9"/>
                             <constraint firstItem="bEY-Kf-Qph" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xQe-a1-GSL"/>
+                            <constraint firstItem="pz1-vG-Y05" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="zwu-iv-pSH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="alert1Label" destination="pz1-vG-Y05" id="Ohj-9y-mJ9"/>
+                        <outlet property="alert1Stepper" destination="vz3-d7-RPk" id="NWR-Ba-bC9"/>
+                        <outlet property="alert2Label" destination="WGA-kS-lKr" id="vi8-Us-8DR"/>
+                        <outlet property="alert2Stepper" destination="eVQ-Cr-IVk" id="3nF-Ca-jLO"/>
+                        <outlet property="coldValveLabel" destination="BIf-49-GTK" id="Bmg-fW-IYd"/>
+                        <outlet property="confirmButton" destination="RVm-XR-vFY" id="j5c-WU-Fbm"/>
                         <outlet property="currentTempLabel" destination="Iwu-f1-5Az" id="Veu-Nx-fjP"/>
+                        <outlet property="mainValveLabel" destination="mtZ-Aq-rZf" id="l9e-si-I3O"/>
+                        <outlet property="showerReadyLabel" destination="pQw-uT-rxQ" id="lRH-Bd-vFF"/>
                         <outlet property="sliderControl" destination="KXL-OZ-uui" id="W8J-Xe-ZBk"/>
                         <outlet property="targetTempLabel" destination="nP8-bl-af0" id="XVT-3x-kJj"/>
                     </connections>
